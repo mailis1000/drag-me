@@ -1,0 +1,112 @@
+$icons-happy: (
+  smile: '500',
+  smile-wink: '600',
+  smile-beam: '200',
+  meh-rolling-eyes: '100',
+  laugh: '500',
+  snowflake: '0',
+  heart: '0',
+  star: '0'
+);
+
+@mixin happy-icons {
+  @each $name, $value in $icons-happy {
+    &.#{$name} {
+      -webkit-transition: background #{$value}ms;
+      -moz-transition: background #{$value}ms;
+      -o-transition: background #{$value}ms;
+      transition: background #{$value}ms;
+      background-image: url('./../public/icons/#{$name}.svg');
+    }
+  }
+}
+
+$icons-sad: (
+  'sad-tear',
+  'surprise',
+  'tired',
+  'flushed',
+  'dizzy',
+);
+
+@mixin sad-icons {
+  @each $name, $value in $icons-sad {
+    &.#{$name} {
+      background-image: url('./../public/icons/#{$name}.svg');
+    }
+  }
+}
+
+$animations: (
+  spin: '3000',
+  heart-beat: '800',
+  resize: '2000'
+);
+
+@mixin animate {
+  @each $name, $value in $animations {
+    &.#{$name} {
+      animation-name: #{$name};
+      animation-duration: #{$value}ms;
+      animation-iteration-count: infinite;
+      animation-timing-function: linear;
+    }
+  }
+}
+
+.draggable {
+  width: 50px;
+  height: 50px;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: inline-block;
+  @include happy-icons;
+
+  &.ui-draggable-dragging {
+    @include sad-icons;
+    @include animate;
+  }
+}
+
+.card {
+  background-color: rgba(223, 220, 227, 0.4);
+}
+
+@keyframes spin {
+  from {
+      transform:rotate(0deg);
+  }
+  to {
+      transform:rotate(360deg);
+  }
+}
+
+@keyframes heart-beat {
+  0% {
+    transform: scale(1);
+  }
+  25% {
+    transform: scale(1.1);
+  }
+  40% {
+    transform: scale(1);
+  }
+  60% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes resize {
+	0% {
+		transform: scale(1);
+	}
+	50% {
+		transform: scale(0.3);
+	}
+	100% {
+		transform: scale(1);
+	}
+}
