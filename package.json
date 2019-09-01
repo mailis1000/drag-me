@@ -10,7 +10,9 @@
     "dev": "cross-env NODE_ENV=dev webpack-dev-server --open --config webpack.config.js",
     "lint": "eslint src/js",
     "lint:fix": "npm run lint -- --fix",
-    "start": "npm run dev"
+    "start": "npm run dev",
+    "docker-build": "npm run predeploy && docker build -t drag-me .",
+    "docker-run": "docker run -p 7766:7766 drag-me"
   },
   "dependencies": {
     "bootstrap": "^4.3.1",

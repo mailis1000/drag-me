@@ -1,11 +1,11 @@
 # Drag plugin
 
-## Download and Install
+## Demo: Download and Install
 
 Let's go!
 
 ```
-$ git clone URL
+$ git clone https://github.com/mailis1000/drag-me.git
 $ cd drag-plugin
 $ npm install
 ```
@@ -26,6 +26,15 @@ Build for production.
 $ npm run build
 ```
 
+## Run with docker
+
+Run in docker container on port **7766**
+
+```
+$ npm run docker-build
+$ npm run docker-run
+```
+
 ## Demo
 
-**[DEMO](DEMOURL)**
+**[DEMO](https://drag-me.faf.sh/)**
